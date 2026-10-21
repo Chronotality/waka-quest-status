@@ -1,3 +1,50 @@
 {
- "checks": {}
+ "checks": {
+  "app": {
+   "ok": true,
+   "code": 200,
+   "ms": 270,
+   "why": "",
+   "since": "2026-10-21T09:31:49.773Z",
+   "fails": 0,
+   "issue": null
+  },
+  "links": {
+   "ok": true,
+   "code": 200,
+   "ms": 253,
+   "why": "",
+   "since": "2026-10-21T09:31:49.773Z",
+   "fails": 0,
+   "issue": null
+  },
+  "zaak": {
+   "ok": true,
+   "code": 200,
+   "ms": 306,
+   "why": "",
+   "since": "2026-10-21T09:31:49.773Z",
+   "fails": 0,
+   "issue": null
+  },
+  "doemee": {
+   "ok": true,
+   "code": 200,
+   "ms": 284,
+   "why": "",
+   "since": "2026-10-21T09:31:49.773Z",
+   "fails": 0,
+   "issue": null
+  },
+  "health": {
+   "ok": true,
+   "code": 200,
+   "ms": 318,
+   "why": "",
+   "since": "2026-10-21T09:31:49.773Z",
+   "fails": 0,
+   "issue": null
+  }
+ },
+ "checkedAt": "2026-10-21T09:31:49.773Z"
 }
