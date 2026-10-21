@@ -1,9 +1,10 @@
-# Waka Quest status checks: every 10 minutes (GitHub may start a scheduled run a few minutes late), and by hand.
+# Waka Quest status checks: every 10 minutes, on quiet minutes (:07, :17, ...; GitHub delays or drops scheduled runs
+# on busy round minutes), and by hand.
 # Only GitHub's own token, valid in this repository and for this run only: write the data files, open/close issues.
 name: checks
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '7,17,27,37,47,57 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
