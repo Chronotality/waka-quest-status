@@ -3,7 +3,7 @@
   "app": {
    "ok": true,
    "code": 200,
-   "ms": 431,
+   "ms": 243,
    "why": "",
    "since": "2026-10-21T08:13:42.866Z",
    "fails": 0,
@@ -12,7 +12,7 @@
   "links": {
    "ok": true,
    "code": 200,
-   "ms": 228,
+   "ms": 230,
    "why": "",
    "since": "2026-10-21T08:13:42.866Z",
    "fails": 0,
@@ -21,7 +21,7 @@
   "zaak": {
    "ok": true,
    "code": 200,
-   "ms": 224,
+   "ms": 163,
    "why": "",
    "since": "2026-10-21T08:13:42.866Z",
    "fails": 0,
@@ -30,7 +30,7 @@
   "doemee": {
    "ok": true,
    "code": 200,
-   "ms": 225,
+   "ms": 183,
    "why": "",
    "since": "2026-10-21T08:13:42.866Z",
    "fails": 0,
@@ -39,21 +39,21 @@
   "health": {
    "ok": true,
    "code": 200,
-   "ms": 227,
+   "ms": 252,
    "why": "",
    "since": "2026-10-21T08:45:51.037Z",
    "fails": 0,
    "issue": null
   },
   "test": {
-   "ok": false,
+   "ok": true,
    "code": 200,
-   "ms": 109,
-   "why": "text missing",
-   "since": "2026-10-21T08:45:51.037Z",
-   "fails": 2,
-   "issue": 1
+   "ms": 504,
+   "why": "",
+   "since": "2026-10-21T08:48:18.067Z",
+   "fails": 0,
+   "issue": null
   }
  },
- "checkedAt": "2026-10-21T08:46:41.955Z"
+ "checkedAt": "2026-10-21T08:48:18.067Z"
 }
