@@ -32,3 +32,14 @@ Ontbreekt een taal, dan toont de pagina Engels, en anders Nederlands. Claude ver
 ## Contact
 
 info@waka-quest.com · chat via waka-quest.com/links (geen telefoonnummer als tekst).
+
+## Het wekkertje (Cloudflare Worker)
+
+GitHub start geplande rondes maar af en toe. Daarom start een Cloudflare Worker (`worker/index.js`, naam
+`waka-status-cron`) de controles elke 10 minuten zelf. Hij gebruikt een GitHub-sleutel (fine-grained token) die alleen
+voor deze repository geldt en alleen "Actions: read and write" mag. De sleutel staat als geheim `GH_TOKEN` in
+Cloudflare (Settings > Variables and Secrets), nergens in deze repository.
+
+- Werkt het niet meer? Kijk in Cloudflare bij de Worker > Logs: "401/403" betekent dat de sleutel verlopen is.
+- Sleutel vernieuwen: GitHub > Settings > Developer settings > Fine-grained tokens > Regenerate, en de nieuwe waarde
+  in Cloudflare bij `GH_TOKEN` plakken.
