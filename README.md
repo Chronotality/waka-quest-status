@@ -5,7 +5,7 @@ hosting hapert. Adres: status.waka-quest.com (na de DNS-regel) en als reserve ch
 
 ## Wat er vanzelf gebeurt
 
-- Elke 10 minuten bezoekt `.github/workflows/check.yml` de adressen in `checks.json` (`scripts/check.mjs`).
+- Elke 10 minuten (op :07, :17, …) bezoekt `.github/workflows/check.yml` de adressen in `checks.json` (`scripts/check.mjs`).
 - Werkt een adres twee keer achter elkaar niet, dan opent hij een **issue "Storing: …"**. GitHub mailt dat en stuurt een
   pushbericht via de GitHub-app. Werkt het weer, dan sluit hij het issue zelf.
 - De resultaten staan in `data/state.json` (nu) en `data/days.json` (per dag, 90 dagen). De pagina leest die.
