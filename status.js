@@ -69,7 +69,7 @@
       close: 'Waka Quest。体验将我们相连的一切，发现让我们与众不同的一切。',
       parts_: { app: ['Waka Dag 和 Waka Nacht', 'waka-quest.com 上的应用'], links: ['链接页面', 'waka-quest.com/links'], zaak: ['商家门户与注册', '面向合作伙伴'], data: ['数据库与通行证', '进度、通行证、消息'] } },
   };
-  const LANGS = Object.keys(T), BACKUP = 'https://chronotality.github.io/waka-quest-status/';
+  const LANGS = Object.keys(T);
   const q = new URLSearchParams(location.search).get('lang');
   let lang = [q, (navigator.languages || [navigator.language || 'nl']).map(l => String(l).slice(0, 2)).find(l => LANGS.includes(l)), 'nl'].find(l => LANGS.includes(l));
   const $ = id => document.getElementById(id);
@@ -84,7 +84,6 @@
     const t = T[lang];
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang === 'zh' ? 'zh-Hans' : lang;
     document.querySelectorAll('[data-t]').forEach(e => { if (t[e.dataset.t]) e.textContent = t[e.dataset.t]; });
-    const backup = $('backup-link'); backup.href = BACKUP; backup.textContent = BACKUP.replace('https://', '');
     // the components, from the checks (a component is down when one of its checks failed on two runs in a row)
     const comps = [...new Set((CFG?.checks || []).map(c => c.component))];
     const now = Date.now();

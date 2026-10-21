@@ -1,7 +1,9 @@
 # Waka Quest · status
 
 De statuspagina van Waka Quest, los van de app: GitHub Pages in plaats van Firebase, zodat hij werkt als de app of de
-hosting hapert. Adres: status.waka-quest.com (na de DNS-regel) en als reserve chronotality.github.io/waka-quest-status.
+hosting hapert. Adres: **status.waka-quest.com** (het oude github.io-adres stuurt daarheen door). De app leest
+`status.json` en `data/state.json` rechtstreeks via raw.githubusercontent.com, zodat de balk in de app ook werkt als
+waka-quest.com zelf hapert.
 
 ## Wat er vanzelf gebeurt
 
