@@ -1,0 +1,31 @@
+# Waka Quest status checks: every 10 minutes (GitHub may start a scheduled run a few minutes late), and by hand.
+# Only GitHub's own token, valid in this repository and for this run only: write the data files, open/close issues.
+name: checks
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: checks
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: save the results
+        run: |
+          git config user.name "waka-status"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || (git commit -q -m "status $(date -u +%FT%TZ) [skip ci]" && git push -q)

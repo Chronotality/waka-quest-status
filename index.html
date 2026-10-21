@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Waka Quest · Status</title>
+  <meta name="description" content="Werkt Waka Quest? De status van de app, de linkpagina en het zaakportaal.">
+  <meta name="theme-color" content="#123f39">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="status.css">
+</head>
+<body>
+  <div class="band"></div>
+  <header>
+    <a class="logo" href="https://waka-quest.com/links"><img src="assets/logo-white.svg" alt="Waka Quest"></a>
+    <div class="lang"><label for="lang" class="sr" data-t="langLabel">Taal</label><select id="lang"></select></div>
+  </header>
+  <main>
+    <p class="why"><i></i><span data-t="why">Beleef wat ons verbindt</span></p>
+    <section id="hero" class="hero" aria-live="polite">
+      <img class="waki" src="assets/waki.webp" alt="">
+      <div>
+        <p class="kicker" data-t="kicker">Status</p>
+        <h1 id="title">…</h1>
+        <p id="lead"></p>
+        <p id="msg" class="msg" hidden></p>
+      </div>
+    </section>
+    <section id="planned" class="card" hidden>
+      <h2 data-t="planned">Gepland onderhoud</h2>
+      <ul id="planned-list"></ul>
+    </section>
+    <section class="card">
+      <h2 data-t="parts">Onderdelen</h2>
+      <ul id="parts" class="parts"></ul>
+      <p class="legend"><span><i class="d ok"></i><b data-t="legOk">werkt</b></span><span><i class="d bad"></i><b data-t="legBad">storing</b></span><span><i class="d none"></i><b data-t="legNone">geen meting</b></span><span data-t="legDays">90 dagen, oudste links</span></p>
+      <p id="checked" class="small"></p>
+    </section>
+    <section id="past" class="card" hidden>
+      <h2 data-t="past">Eerdere meldingen</h2>
+      <ul id="past-list" class="past"></ul>
+    </section>
+    <section class="card help">
+      <h2 data-t="helpTitle">Vragen?</h2>
+      <p data-t="helpText">Je voortgang staat veilig op je telefoon. De wandeling en de verhalen werken ook zonder internet zodra je de app eerder hebt geopend.</p>
+      <p><a href="mailto:info@waka-quest.com">info@waka-quest.com</a> · <a href="https://waka-quest.com/links" data-t="chat">chat met ons via waka-quest.com/links</a></p>
+      <p class="small" data-t="backup">Werkt deze pagina niet? Probeer ook:</p>
+      <p class="small"><a id="backup-link" href="#"></a></p>
+    </section>
+  </main>
+  <footer><span data-t="close">Waka Quest. Beleef wat ons verbindt. Ontdek wat ons bijzonder maakt.</span></footer>
+  <script src="status.js"></script>
+</body>
+</html>

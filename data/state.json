@@ -1,0 +1,41 @@
+{
+ "checks": {
+  "app": {
+   "ok": true,
+   "code": 200,
+   "ms": 504,
+   "why": "",
+   "since": "2026-10-21T08:13:42.866Z",
+   "fails": 0,
+   "issue": null
+  },
+  "links": {
+   "ok": true,
+   "code": 200,
+   "ms": 383,
+   "why": "",
+   "since": "2026-10-21T08:13:42.866Z",
+   "fails": 0,
+   "issue": null
+  },
+  "zaak": {
+   "ok": true,
+   "code": 200,
+   "ms": 359,
+   "why": "",
+   "since": "2026-10-21T08:13:42.866Z",
+   "fails": 0,
+   "issue": null
+  },
+  "doemee": {
+   "ok": true,
+   "code": 200,
+   "ms": 434,
+   "why": "",
+   "since": "2026-10-21T08:13:42.866Z",
+   "fails": 0,
+   "issue": null
+  }
+ },
+ "checkedAt": "2026-10-21T08:13:42.866Z"
+}
