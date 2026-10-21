@@ -33,12 +33,6 @@
       "component": "data",
       "url": "https://us-central1-principal-storm-462516-n1.cloudfunctions.net/health",
       "contains": "\"ok\":true"
-    },
-    {
-      "id": "test",
-      "component": "data",
-      "url": "https://us-central1-principal-storm-462516-n1.cloudfunctions.net/health",
-      "contains": "\"ok\":true"
     }
   ]
 }
