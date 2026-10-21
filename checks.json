@@ -1,9 +1,41 @@
 {
-  "note": "What the status page checks every 10 minutes. 'component' groups checks on the page. Step 1 (21-10-2026): staging only; the health point in Functions comes in step 2, live in step 4.",
+  "note": "What the status page checks every 10 minutes. 'component' groups checks on the page. Staging until step 4 (live).",
   "checks": [
-    { "id": "app", "component": "app", "url": "https://waka-quest-staging.web.app/", "contains": "Waka Quest" },
-    { "id": "links", "component": "links", "url": "https://waka-quest-staging.web.app/links", "contains": "Waka Quest" },
-    { "id": "zaak", "component": "zaak", "url": "https://waka-quest-staging.web.app/zaak.html", "contains": "Waka Quest" },
-    { "id": "doemee", "component": "zaak", "url": "https://waka-quest-staging.web.app/doe-mee", "contains": "Waka Quest" }
+    {
+      "id": "app",
+      "component": "app",
+      "url": "https://waka-quest-staging.web.app/",
+      "contains": "Waka Quest"
+    },
+    {
+      "id": "links",
+      "component": "links",
+      "url": "https://waka-quest-staging.web.app/links",
+      "contains": "Waka Quest"
+    },
+    {
+      "id": "zaak",
+      "component": "zaak",
+      "url": "https://waka-quest-staging.web.app/zaak.html",
+      "contains": "Waka Quest"
+    },
+    {
+      "id": "doemee",
+      "component": "zaak",
+      "url": "https://waka-quest-staging.web.app/doe-mee",
+      "contains": "Waka Quest"
+    },
+    {
+      "id": "health",
+      "component": "data",
+      "url": "https://us-central1-principal-storm-462516-n1.cloudfunctions.net/health",
+      "contains": "\"ok\":true"
+    },
+    {
+      "id": "test",
+      "component": "data",
+      "url": "https://us-central1-principal-storm-462516-n1.cloudfunctions.net/health",
+      "contains": "WAKA-STATUS-TEST-FAILS-ON-PURPOSE"
+    }
   ]
 }
