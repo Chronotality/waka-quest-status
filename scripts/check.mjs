@@ -29,6 +29,8 @@ async function probe({ url, contains }) {
 
 // GitHub issues: only in Actions (GITHUB_TOKEN and GITHUB_REPOSITORY are set there)
 const TOKEN = process.env.GITHUB_TOKEN, REPO = process.env.GITHUB_REPOSITORY;
+// the people named in every alert: GitHub only mails and pushes a bot's issue to someone it names (checks.json "notify")
+const NOTIFY = (CFG.notify || []).length ? '\n\n' + CFG.notify.map(n => '@' + n).join(' ') : '';
 async function gh(path, body, method = 'POST') {
   if (!TOKEN || !REPO) { console.log(`(local, not sent) ${method} ${path}`, body?.title || body?.body || ''); return {}; }
   const r = await fetch(`https://api.github.com/repos/${REPO}${path}`, { method, headers: { authorization: `Bearer ${TOKEN}`, accept: 'application/vnd.github+json', 'content-type': 'application/json' }, body: JSON.stringify(body) });
@@ -46,12 +48,12 @@ for (const [c, res] of results) {
   const prev = state.checks[c.id] || {};
   const s = { ok: res.ok, code: res.code, ms: res.ms, why: res.why, since: prev.ok === res.ok && prev.since ? prev.since : now.toISOString(), fails: res.ok ? 0 : (prev.fails || 0) + 1, issue: prev.issue || null };
   if (!res.ok && s.fails === DOWN_AFTER && !s.issue) {
-    const i = await gh('/issues', { title: `Storing: ${c.id}`, labels: ['storing'], body: `**${c.id}** (${c.url}) werkt niet sinds ${prev.since || now.toISOString()}.\n\nLaatste controle: ${res.why} (http ${res.code}, ${res.ms} ms).\n\nDe statuspagina staat op storing. Dit bericht sluit vanzelf zodra het weer werkt.` });
+    const i = await gh('/issues', { title: `Storing: ${c.id}`, labels: ['storing'], body: `**${c.id}** (${c.url}) werkt niet sinds ${prev.since || now.toISOString()}.\n\nLaatste controle: ${res.why} (http ${res.code}, ${res.ms} ms).\n\nDe statuspagina staat op storing. Dit bericht sluit vanzelf zodra het weer werkt.${NOTIFY}` });
     s.issue = i.number || 'local';
   }
   if (res.ok && s.issue) {
     if (typeof s.issue === 'number') {
-      await gh(`/issues/${s.issue}/comments`, { body: `Werkt weer sinds ${now.toISOString()} (http ${res.code}, ${res.ms} ms).` });
+      await gh(`/issues/${s.issue}/comments`, { body: `Werkt weer sinds ${now.toISOString()} (http ${res.code}, ${res.ms} ms).${NOTIFY}` });
       await gh(`/issues/${s.issue}`, { state: 'closed' }, 'PATCH');
     } else console.log('(local) would close the issue for', c.id);
     s.issue = null;

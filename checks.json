@@ -1,5 +1,8 @@
 {
   "note": "What the status page checks every 10 minutes. 'component' groups checks on the page. Staging until step 4 (live).",
+  "notify": [
+    "Chronotality"
+  ],
   "checks": [
     {
       "id": "app",
@@ -35,7 +38,7 @@
       "id": "test",
       "component": "data",
       "url": "https://us-central1-principal-storm-462516-n1.cloudfunctions.net/health",
-      "contains": "WAKA-STATUS-TEST-FAILS-ON-PURPOSE"
+      "contains": "\"ok\":true"
     }
   ]
 }
