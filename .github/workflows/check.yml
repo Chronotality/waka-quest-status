@@ -24,9 +24,21 @@ jobs:
       - run: node scripts/check.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Saving retries (owner 13-11-2026): on 13-11 six runs in a row could not push during a GitHub incident, so the
+      # results of that hour were lost. Now: up to 5 tries, each time first taking the newest main (our commit on top;
+      # on a clash in a data file our newer result wins), waiting a little longer each time.
       - name: save the results
         run: |
           git config user.name "waka-status"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data
-          git diff --cached --quiet || (git commit -q -m "status $(date -u +%FT%TZ) [skip ci]" && git push -q)
+          git diff --cached --quiet && exit 0
+          git commit -q -m "status $(date -u +%FT%TZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            git push -q && exit 0
+            echo "push failed (try $i), trying again"
+            sleep $((i * 10))
+            git pull -q --rebase -X theirs origin main || git rebase --abort || true
+          done
+          echo "could not save the results after 5 tries"
+          exit 1
